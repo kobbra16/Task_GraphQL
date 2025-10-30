@@ -1,13 +1,14 @@
 # Task_GraphQL
 Task_GraphQL
-На основе документации в Confluence https://testbase.atlassian.net/wiki/spaces/GraphQL/pages/4427939842/Cards
+На основе документации в Confluence 
+>https://testbase.atlassian.net/wiki/spaces/GraphQL/pages/4427939842/Cards
 1.Создать 3 новых users.
 2.У новых users создать банковские карточки.
 3.Добавить на банковские карточки деньги.
 4.Провести деньги с карточки на карточку.
 
 1.Для создания новых юзеров используем mutation addUser.
-
+```
 mutation addUser {
     addUser(name: "Инокентий", age: 30, phone: "123", vip: false) {
         id
@@ -39,9 +40,9 @@ mutation addUser {
         vip
     }
 }
-
+```
 2.Для создания карточек используем mutation addCard.
-
+```
 mutation addCard {
     addCard(bank: GREEN_BANK, number: "4321-4321-4321-4321", user_id:{{id}}) {
         bank
@@ -65,9 +66,9 @@ mutation addCard {
         balance
     }
 }
-
+```
 3.Для добавления на банковские счета денег используем mutation addMoney.
-
+```
 mutation addMoney {
     addMoney(number: "4321-4321-4321-4321", balance: 1000.0) {
         bank
@@ -92,9 +93,9 @@ mutation addMoney {
         balance
     }
 }
-
+```
 4.Для перевода между карточками используем метод MoneyTransfer.
-
+```
 mutation MoneyTransfer {
     moneyTransfer(number_from: "3421-3421-3421-3421", number_to:"2413-2413-2413-2413", balance: 1000) {
         bank
@@ -102,5 +103,5 @@ mutation MoneyTransfer {
         balance
     }
 }
-
+```
 
